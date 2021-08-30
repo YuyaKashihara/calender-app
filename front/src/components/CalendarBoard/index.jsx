@@ -6,13 +6,15 @@ import * as styles from "./style.css";
 
 const calendar = createCalendar();
 
+const days = ["日", "月", "火", "水", "木", "金", "土"];
+
 const CalendarBoard = () => {
     return (
         <div>
             <GridList className={styles.grid} cols={7} spacing={0} cellHeight="auto">
                 {calendar.map(c => (
                     <li key={c.toISOString()}>
-                        <CalendarElement>{c.format("D")}</CalendarElement>
+                        <CalendarElement day={c} />
                     </li>
                 ))}
             </GridList>
